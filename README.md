@@ -1,6 +1,6 @@
 # 知了博客系统
 
-一个基于Django开发的博客系统，支持用户注册、登录、发布博客、评论等功能。
+一个基于Django开发的前后端不分离博客系统，支持用户注册、登录、发布博客、评论等功能。
 
 ## 技术栈
 
@@ -91,7 +91,7 @@ default-character-set = utf8mb4
 ```
 
 5. 配置邮箱（用于验证码发送）
-  在settings.py中配置以下内容：
+    在settings.py中配置以下内容：
 
   ```python
   EMAIL_HOST = 'smtp.qq.com'
