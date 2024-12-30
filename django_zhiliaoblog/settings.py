@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
     'blog',
     'zlauth',
 ]
@@ -59,12 +60,14 @@ TEMPLATES = [
         ,
         'APP_DIRS': True,
         'OPTIONS': {
+            # 上下文处理器，所有模板都会使用到的模块
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # 加载static文件用到
             'builtins':['django.templatetags.static'],
         },
     },
@@ -78,8 +81,10 @@ WSGI_APPLICATION = 'django_zhiliaoblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': 'db.cnf',
+        }
     }
 }
 
@@ -107,12 +112,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
+# TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_TZ = True
+# USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -138,3 +146,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# 未登录跳转地址
+LOGIN_URL = '/auth/login'

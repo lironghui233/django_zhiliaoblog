@@ -1,0 +1,5 @@
+[client]
+database = zhiliaoblog
+user =
+password = 
+default-character-set = utf8
