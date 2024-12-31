@@ -103,6 +103,7 @@ default-character-set = utf8mb4
 6. 运行数据库迁移
 
    ```bash
+   python manage.py makemigrations
    python manage.py migrate
    ```
 
